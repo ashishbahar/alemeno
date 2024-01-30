@@ -49,25 +49,26 @@ const Courses = () => {
   }, [db]);
 
   return (
-    <div className="bg-black">
+    <div className="bg-black overflow-x-hidden">
       <center>
         <h2>Source Code Details</h2>
       </center>
-
-      {sourceCodeData.map((data, index) => (
-        <div key={index} className="">
-          <div className="course_box p-2">
-            {/* Use dynamic image source based on fetched data */}
-            {data.img === "img1" && <img className="w-100" src={img1} alt="" />}
-            {data.img === "img2" && <img className="w-100" src={img2} alt="" />}
-            {/* Add more image cases as needed */}
-
-            <p className="text-white">Name: {data.name}</p>
-            <p className="text-white">Instructor: {data.instructor}</p>
-            {/* Add more fields as needed */}
+      <div className="row">
+        {sourceCodeData.map((data, index) => (
+          <div key={index} className="col-4">
+            <div className="course_box p-2 h-100">
+              {data.img === "img1" && (
+                <img className="w-100" src={img1} alt="" />
+              )}
+              {data.img === "img2" && (
+                <img className="w-100" src={img2} alt="" />
+              )}
+              <p className="text-white">Name: {data.name}</p>
+              <p className="text-white">Instructor: {data.instructor}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
