@@ -47,3 +47,16 @@
 .link_line:hover::after {
   width: 100%;
 }
+
+.course_box {
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.linear_gradient {
+  background: var(--Linear, linear-gradient(270deg, #FFA74C 0%, #FF9155 18.23%, #FE5F6B 48.44%, #C769C6 79.69%, #B16DEA 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
