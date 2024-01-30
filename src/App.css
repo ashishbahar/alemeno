@@ -50,8 +50,8 @@
 
 .course_box {
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.16);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid white;
+  background: rgba(165, 127, 127, 0.04);
 }
 
 .linear_gradient {
@@ -59,4 +59,18 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.button {
+  color: white !important;
+  font-size: 20px;
+  border-radius: 12px;
+  outline: none;
+  border: 1px solid rgb(127, 20, 20);
+  transition: .3s all linear;
+  background: var(--Linear, linear-gradient(270deg, #FFA74C 0%, #FF9155 18.23%, #FE5F6B 48.44%, #C769C6 79.69%, #B16DEA 100%));
+}
+
+button:hover {
+    background: var(--Linear, linear-gradient(270deg, #FFA74C 0%, #ab5b2f 18.23%, #c1434e 48.44%, #C769C6 79.69%, #592684 100%));
 }
