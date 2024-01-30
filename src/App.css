@@ -1,11 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
 
 * {
   padding: 0;
   margin: 0;
   text-decoration: none !important;
   list-style-type: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #000;
 }
 
 .nav_input {
@@ -40,8 +44,18 @@
   transform: translateX(-50%);
   border-radius: 20px;
   bottom: -4px;
-  transition: all .3s linear;
-  background: var(--Linear, linear-gradient(270deg, #FFA74C 0%, #FF9155 18.23%, #FE5F6B 48.44%, #C769C6 79.69%, #B16DEA 100%));
+  transition: all 0.3s linear;
+  background: var(
+    --Linear,
+    linear-gradient(
+      270deg,
+      #ffa74c 0%,
+      #ff9155 18.23%,
+      #fe5f6b 48.44%,
+      #c769c6 79.69%,
+      #b16dea 100%
+    )
+  );
 }
 
 .link_line:hover::after {
@@ -49,13 +63,24 @@
 }
 
 .course_box {
+  width: 300px;
   border-radius: 16px;
   border: 1px solid white;
   background: rgba(165, 127, 127, 0.04);
 }
 
 .linear_gradient {
-  background: var(--Linear, linear-gradient(270deg, #FFA74C 0%, #FF9155 18.23%, #FE5F6B 48.44%, #C769C6 79.69%, #B16DEA 100%));
+  background: var(
+    --Linear,
+    linear-gradient(
+      270deg,
+      #ffa74c 0%,
+      #ff9155 18.23%,
+      #fe5f6b 48.44%,
+      #c769c6 79.69%,
+      #b16dea 100%
+    )
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -67,10 +92,30 @@
   border-radius: 12px;
   outline: none;
   border: 1px solid rgb(127, 20, 20);
-  transition: .3s all linear;
-  background: var(--Linear, linear-gradient(270deg, #FFA74C 0%, #FF9155 18.23%, #FE5F6B 48.44%, #C769C6 79.69%, #B16DEA 100%));
+  transition: 0.3s all linear;
+  background: var(
+    --Linear,
+    linear-gradient(
+      270deg,
+      #ffa74c 0%,
+      #ff9155 18.23%,
+      #fe5f6b 48.44%,
+      #c769c6 79.69%,
+      #b16dea 100%
+    )
+  );
 }
 
 button:hover {
-    background: var(--Linear, linear-gradient(270deg, #FFA74C 0%, #ab5b2f 18.23%, #c1434e 48.44%, #C769C6 79.69%, #592684 100%));
+  background: var(
+    --Linear,
+    linear-gradient(
+      270deg,
+      #ffa74c 0%,
+      #ab5b2f 18.23%,
+      #c1434e 48.44%,
+      #c769c6 79.69%,
+      #592684 100%
+    )
+  );
 }
