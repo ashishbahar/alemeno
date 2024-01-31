@@ -5,6 +5,9 @@ import Accordion from "react-bootstrap/Accordion";
 import img1 from "../assets/images/png/img1.png";
 import img2 from "../assets/images/png/img2.png";
 import img3 from "../assets/images/png/img3.png";
+import { useDispatch } from "react-redux";
+import { enrollStudent } from "./CounterSlice";
+import { Link } from "react-router-dom";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -21,7 +24,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const ReactNativeCourse = () => {
   const [sourceCodeData, setSourceCodeData] = useState([]);
-
+  const [show, setShow] = useState(false);
+  const dispatch = useDispatch();
   useEffect(() => {
     const fetchSourceCodeData = async () => {
       const documentIds = ["NpMcTW3MogNIy7kXTz5K"];
@@ -49,11 +53,23 @@ const ReactNativeCourse = () => {
     fetchSourceCodeData();
   }, [db]);
 
+  const handleEnroll = (enrollmentData) => {
+    dispatch(enrollStudent(enrollmentData));
+    setShow(true);
+  };
+
   return (
     <div className="bg-black overflow-x-hidden py-3">
-      <center>
-        <h2 className="text-white fs-1 fw-bold pt-4">Course Details</h2>
-      </center>
+      <div className="d-flex justify-content-between align-items-center">
+        <center>
+          <h2 className="text-white fs-1 fw-bold pt-4">Course Details</h2>
+        </center>
+        <Link to={"/EnrolledCourses"}>
+          <p className="mb-0 c_pointer me-5 text-white link_line">
+            Enrolled Course
+          </p>
+        </Link>
+      </div>
       <div className="mt-5 container">
         {sourceCodeData.map((data, index) => (
           <div key={index} className="col-12">
@@ -77,13 +93,16 @@ const ReactNativeCourse = () => {
                   </p>
                 </div>
                 <p className="mb-0 text-white me-3 mt-2">
-                  <span className=" fw-bold pe-2 "> duration :</span> {data.duration}
+                  <span className=" fw-bold pe-2 "> duration :</span>{" "}
+                  {data.duration}
                 </p>
                 <p className="mb-0 text-white me-3 mt-2">
-                  <span className=" fw-bold pe-2"> schedule :</span> {data.schedule}
+                  <span className=" fw-bold pe-2"> schedule :</span>{" "}
+                  {data.schedule}
                 </p>
                 <p className="mb-0 text-white me-3 mt-2">
-                  <span className=" fw-bold pe-2">location :</span> {data.location}
+                  <span className=" fw-bold pe-2">location :</span>{" "}
+                  {data.location}
                 </p>
                 <div className="d-flex gap-2 mt-2">
                   <p className="text-white mb-0 fw-bold pe-2">prerequisites:</p>
@@ -117,6 +136,31 @@ const ReactNativeCourse = () => {
                 {data.img === "img1" && (
                   <img className="w-75" src={img1} alt="" />
                 )}
+                <div>
+                  <button
+                    onClick={() =>
+                      handleEnroll({
+                        name: data.name,
+                        instructor: data.instructor,
+                        image: img1, // Assuming 'img' is the property containing image information
+                        duration: data.duration,
+                      })
+                    }
+                    className="bg-transparent text-white px-3 py-1 rounded-2 border-2 border-white mt-3"
+                  >
+                    Enroll
+                  </button>
+                </div>
+                <div
+                  className={
+                    show === true
+                      ? "modal_box d-flex flex-column align-items-center justify-content-center"
+                      : "d-none"
+                  }
+                >
+                  <button onClick={() => setShow(false)}>cross</button>
+                  <p>Check Enrolled Courses</p>
+                </div>
               </div>
             </div>
           </div>

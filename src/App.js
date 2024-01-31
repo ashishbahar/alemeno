@@ -4,6 +4,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import ReactNativeCourse from "./components/ReactNativeCourse";
 import Home from "./pages/Home";
+import StudentDashboard from "./components/StudentDashboard";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           element={<ReactNativeCourse />}
         ></Route>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/EnrolledCourses" element={<StudentDashboard />} />
       </Routes>
     </>
   );

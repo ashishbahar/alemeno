@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/images/png/logo.png";
 import searchicon from "../assets/images/svg/search.svg";
+import { Link } from "react-router-dom";
 const NavBar = () => {
   const [nav, setNav] = useState(true);
   if (nav) {
@@ -22,9 +23,11 @@ const NavBar = () => {
                 : " d-flex align-items-center flex-column flex-lg-row mobile_ul show "
             }
           >
-            <p className="mb-0 c_pointer me-5 text-white link_line">
-              Enrolled Course{" "}
-            </p>
+            <Link to={"/EnrolledCourses"}>
+              <p className="mb-0 c_pointer me-5 text-white link_line">
+                Enrolled Course
+              </p>
+            </Link>
             <div className="nav_input d-flex align-items-center">
               <input
                 className="input"
