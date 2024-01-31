@@ -26,6 +26,7 @@ const db = getFirestore(app);
 const ReactNativeCourse = () => {
   const [sourceCodeData, setSourceCodeData] = useState([]);
   const [show, setShow] = useState(false);
+  const [enrollDisable, setEnrollDisable] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchSourceCodeData = async () => {
@@ -53,12 +54,14 @@ const ReactNativeCourse = () => {
 
     fetchSourceCodeData();
   }, [db]);
-
   const handleEnroll = (enrollmentData) => {
     dispatch(enrollStudent(enrollmentData));
     setShow(true);
   };
-
+  function handlemodal() {
+    setShow(false);
+    setEnrollDisable(true);
+  }
   return (
     <div className="bg-black py-3">
       <NavBar />
@@ -117,20 +120,35 @@ const ReactNativeCourse = () => {
                   {data.img === "img1" && (
                     <img className="w-75" src={img1} alt="" />
                   )}
-                  <div>
-                    <button
-                      onClick={() =>
-                        handleEnroll({
-                          name: data.name,
-                          instructor: data.instructor,
-                          image: img1,
-                          duration: data.duration,
-                        })
+                  <div className="">
+                    <div className="ms-4 ps-2">
+                      <button
+                        onClick={() =>
+                          handleEnroll({
+                            name: data.name,
+                            instructor: data.instructor,
+                            image: img1,
+                            duration: data.duration,
+                          })
+                        }
+                        className={
+                          enrollDisable === false
+                            ? "d-block ms-5 text-white py-2 px-5 mt-4 button"
+                            : "d-none"
+                        }
+                      >
+                        Enroll
+                      </button>
+                    </div>
+                    <p
+                      className={
+                        enrollDisable === true
+                          ? "d-block text-white mt-3"
+                          : "d-none"
                       }
-                      className="text-white py-2 px-5 mt-4 button "
                     >
-                      Enroll
-                    </button>
+                      CONGRATS🎉 YOU HAVE ENROLLED FOR THIS COURSE
+                    </p>
                   </div>
                   <div
                     className={
@@ -140,8 +158,8 @@ const ReactNativeCourse = () => {
                     }
                   >
                     <button
-                      onClick={() => setShow(false)}
-                      className=" position-absolute top-0 end-0"
+                      onClick={handlemodal}
+                      className="position-absolute top-0 end-0"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
