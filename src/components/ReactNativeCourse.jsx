@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+import Accordion from "react-bootstrap/Accordion";
 import img1 from "../assets/images/png/img1.png";
 import img2 from "../assets/images/png/img2.png";
 import img3 from "../assets/images/png/img3.png";
@@ -65,6 +66,48 @@ const ReactNativeCourse = () => {
                 <p className="text-white mt-3">
                   Description: {data.description}
                 </p>
+                <div className="d-flex align-items-center">
+                  <p className="mb-0 text-white me-3">Enrollment Status : </p>
+                  <p className="mb-0 text-white me-3">
+                    {data.enrollmentStatus}
+                  </p>
+                </div>
+                <p className="mb-0 text-white me-3 mt-2">
+                  duration : {data.duration}
+                </p>
+                <p className="mb-0 text-white me-3 mt-2">
+                  schedule : {data.schedule}
+                </p>
+                <p className="mb-0 text-white me-3 mt-2">
+                  location : {data.location}
+                </p>
+                <div className="d-flex gap-2 mt-2">
+                  <p className="text-white mb-0">prerequisites :</p>
+                  <ul className="p-0 m-0 text-white">
+                    <li> 1: Basic JavaScript knowledge</li>
+                    <li> 2: Familiarity with React</li>
+                  </ul>
+                </div>
+                <div className="d-flex gap-2 mt-3">
+                  <p className="text-white">Syllabus:</p>
+                  <Accordion>
+                    <Accordion.Item eventKey="0">
+                      <Accordion.Header>
+                        Week -1 : Introduction to React Native
+                      </Accordion.Header>
+                      <Accordion.Body>{data.syllabus[0]}</Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1">
+                      <Accordion.Header>
+                        Week -2 : Building Your First App
+                      </Accordion.Header>
+                      <Accordion.Body>
+                        Creating a simple mobile app using React Native
+                        components.
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
+                </div>
               </div>
               <div className="col-6 text-center">
                 {data.img === "img1" && (
