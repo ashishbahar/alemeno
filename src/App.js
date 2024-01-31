@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/home" element={<ReactNativeCourse />}></Route>
+        <Route path="/ReactNativeCourse" element={<ReactNativeCourse />}></Route>
         <Route path="/" element={<Home />}></Route>
       </Routes>
     </>

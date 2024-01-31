@@ -148,6 +148,10 @@ body {
   transform: translateY(-8px) rotate(-45deg);
 }
 
+.set_width {
+  width: 100% !important;
+}
+
 @media (max-width: 992px) {
   .mobile_ul {
     position: fixed;

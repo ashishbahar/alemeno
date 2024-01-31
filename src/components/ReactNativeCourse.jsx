@@ -52,45 +52,49 @@ const ReactNativeCourse = () => {
   return (
     <div className="bg-black overflow-x-hidden py-3">
       <center>
-        <h2 className="text-white">Course Details</h2>
+        <h2 className="text-white fs-1 fw-bold pt-4">Course Details</h2>
       </center>
-      <div className="mt-5">
+      <div className="mt-5 container">
         {sourceCodeData.map((data, index) => (
           <div key={index} className="col-12">
-            <div className="row p-2 h-100">
-              <div className="col-6">
-                <h2 className="text-white">Course Name: {data.name}</h2>
+            <div className="row p-2 h-100 flex-lg-row flex-column-reverse">
+              <div className="col-lg-6">
+                <h2 className="text-white ">Course Name: {data.name}</h2>
                 <h2 className="text-white mt-3">
-                  Instructor: {data.instructor}
+                  <span className=" fw-bold pe-2"> Instructor:</span>{" "}
+                  {data.instructor}
                 </h2>
-                <p className="text-white mt-3">
-                  Description: {data.description}
+                <p className="text-white mt-3  pe-2">
+                  <span className=" fw-bold pe-2"> Description :</span>
+                  {data.description}
                 </p>
                 <div className="d-flex align-items-center">
-                  <p className="mb-0 text-white me-3">Enrollment Status : </p>
+                  <p className="mb-0 text-white me-3 fw-bold pe-2">
+                    Enrollment Status :
+                  </p>
                   <p className="mb-0 text-white me-3">
                     {data.enrollmentStatus}
                   </p>
                 </div>
                 <p className="mb-0 text-white me-3 mt-2">
-                  duration : {data.duration}
+                  <span className=" fw-bold pe-2 "> duration :</span> {data.duration}
                 </p>
                 <p className="mb-0 text-white me-3 mt-2">
-                  schedule : {data.schedule}
+                  <span className=" fw-bold pe-2"> schedule :</span> {data.schedule}
                 </p>
                 <p className="mb-0 text-white me-3 mt-2">
-                  location : {data.location}
+                  <span className=" fw-bold pe-2">location :</span> {data.location}
                 </p>
                 <div className="d-flex gap-2 mt-2">
-                  <p className="text-white mb-0">prerequisites :</p>
+                  <p className="text-white mb-0 fw-bold pe-2">prerequisites:</p>
                   <ul className="p-0 m-0 text-white">
                     <li> 1: Basic JavaScript knowledge</li>
                     <li> 2: Familiarity with React</li>
                   </ul>
                 </div>
-                <div className="d-flex gap-2 mt-3">
-                  <p className="text-white">Syllabus:</p>
-                  <Accordion>
+                <div className="d-flex flex-column flex-md-row gap-2 mt-3">
+                  <p className="text-white fw-bold pe-2">Syllabus:</p>
+                  <Accordion className=" set_width">
                     <Accordion.Item eventKey="0">
                       <Accordion.Header>
                         Week -1 : Introduction to React Native
@@ -109,9 +113,9 @@ const ReactNativeCourse = () => {
                   </Accordion>
                 </div>
               </div>
-              <div className="col-6 text-center">
+              <div className="col-lg-6 col-md-8 col-11 pb-4 pb-lg-0 text-center">
                 {data.img === "img1" && (
-                  <img className="w-50" src={img1} alt="" />
+                  <img className="w-75" src={img1} alt="" />
                 )}
               </div>
             </div>
