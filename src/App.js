@@ -1,14 +1,15 @@
 import logo from "./logo.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import NavBar from "./components/NavBar";
-import Courses from "./components/Courses";
+import { Route, Routes } from "react-router-dom";
+import ReactNativeCourse from "./components/ReactNativeCourse";
 
 function App() {
   return (
     <>
-      <NavBar />
-      <Courses />
+      <Routes>
+        <Route path="/" element={<ReactNativeCourse />}></Route>
+      </Routes>
     </>
   );
 }
