@@ -4,6 +4,7 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import img1 from "../assets/images/png/img1.png";
 import img2 from "../assets/images/png/img2.png";
 import img3 from "../assets/images/png/img3.png";
+import { Link, NavLink } from "react-router-dom";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -56,30 +57,47 @@ const Courses = () => {
 
   return (
     <div className="bg-black overflow-x-hidden">
-      <center>
-        <h2>Source Code Details</h2>
-      </center>
-      <div className="row">
-        {sourceCodeData.map((data, index) => (
-          <div key={index} className="col-3">
-            <div className="course_box p-2 h-100">
-              {data.img === "img1" && (
-                <img className="w-100" src={img1} alt="" />
-              )}
-              {data.img === "img2" && (
-                <img className="w-100" src={img2} alt="" />
-              )}
-              {data.img === "img3" && (
-                <img className="w-100" src={img3} alt="" />
-              )}
-              {data.img === "img4" && (
-                <img className="w-100" src={img1} alt="" />
-              )}
-              <p className="text-white">Name: {data.name}</p>
-              <p className="text-white">Instructor: {data.instructor}</p>
+      <div className="container">
+        <center className=" pt-5">
+          <h2 className=" text-white pt-4 fw-semibold fs-1 pb-3">
+            Latest Courses
+          </h2>
+        </center>
+        <div className="row justify-content-center">
+          {sourceCodeData.map((data, index) => (
+            <div key={index} className="col-lg-4 py-3 col-sm-6 col-11">
+              <div className="course_box d-flex flex-column justify-content-between p-2 h-100">
+                <div>
+                  {data.img === "img1" && (
+                    <img className="w-100" src={img1} alt="" />
+                  )}
+                  {data.img === "img2" && (
+                    <img className="w-100" src={img2} alt="" />
+                  )}
+                  {data.img === "img3" && (
+                    <img className="w-100" src={img3} alt="" />
+                  )}
+                  {data.img === "img4" && (
+                    <img className="w-100" src={img1} alt="" />
+                  )}
+                </div>
+                <p className="text-white mt-4 mb-0 fs-5 fw-semibold">
+                  Name: {data.name}
+                </p>
+                <div className=" pt-2">
+                  <p className="text-white mb-0">
+                    Instructor: {data.instructor}
+                  </p>
+                  <Link to={data.path}>
+                    <button className="button py-2 mt-3 px-4 w-100">
+                      View Details
+                    </button>
+                  </Link>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
