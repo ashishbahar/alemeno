@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import img1 from "../assets/images/png/img1.png";
 import img2 from "../assets/images/png/img2.png";
+import img3 from "../assets/images/png/img3.png";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -23,7 +24,12 @@ const Courses = () => {
 
   useEffect(() => {
     const fetchSourceCodeData = async () => {
-      const documentIds = ["NpMcTW3MogNIy7kXTz5K", "k6RyIPcbODhfcsjDK9EL"];
+      const documentIds = [
+        "NpMcTW3MogNIy7kXTz5K",
+        "k6RyIPcbODhfcsjDK9EL",
+        "ZsdmbdYRzCsStWULjDKv",
+        "amsOlzLZY1htSsSIvyad",
+      ];
 
       try {
         const promises = documentIds.map(async (documentId) => {
@@ -55,13 +61,19 @@ const Courses = () => {
       </center>
       <div className="row">
         {sourceCodeData.map((data, index) => (
-          <div key={index} className="col-4">
+          <div key={index} className="col-3">
             <div className="course_box p-2 h-100">
               {data.img === "img1" && (
                 <img className="w-100" src={img1} alt="" />
               )}
               {data.img === "img2" && (
                 <img className="w-100" src={img2} alt="" />
+              )}
+              {data.img === "img3" && (
+                <img className="w-100" src={img3} alt="" />
+              )}
+              {data.img === "img4" && (
+                <img className="w-100" src={img1} alt="" />
               )}
               <p className="text-white">Name: {data.name}</p>
               <p className="text-white">Instructor: {data.instructor}</p>
