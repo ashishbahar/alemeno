@@ -23,13 +23,13 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const ReactNativeCourse = () => {
+const ReactNativeUi = () => {
   const [sourceCodeData, setSourceCodeData] = useState([]);
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchSourceCodeData = async () => {
-      const documentIds = ["NpMcTW3MogNIy7kXTz5K"];
+      const documentIds = ["amsOlzLZY1htSsSIvyad"];
 
       try {
         const promises = documentIds.map(async (documentId) => {
@@ -114,7 +114,7 @@ const ReactNativeCourse = () => {
                   </div>
                 </div>
                 <div className="col-lg-6 col-md-8 col-11 pb-4 pb-lg-0 mx-auto text-center">
-                  {data.img === "img1" && (
+                  {data.img === "img4" && (
                     <img className="w-75" src={img1} alt="" />
                   )}
                   <div>
@@ -167,7 +167,7 @@ const ReactNativeCourse = () => {
                 <Accordion className=" set_width">
                   <Accordion.Item eventKey="0">
                     <Accordion.Header>
-                      Week -1 : Introduction to React Native
+                      Week -1 : Introduction to React Native Ui
                     </Accordion.Header>
                     <Accordion.Body>{data.syllabus[0]}</Accordion.Body>
                   </Accordion.Item>
@@ -195,4 +195,4 @@ const ReactNativeCourse = () => {
   );
 };
 
-export default ReactNativeCourse;
+export default ReactNativeUi;

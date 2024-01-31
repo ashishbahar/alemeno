@@ -23,13 +23,13 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const ReactNativeCourse = () => {
+const ReactjsCourse = () => {
   const [sourceCodeData, setSourceCodeData] = useState([]);
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchSourceCodeData = async () => {
-      const documentIds = ["NpMcTW3MogNIy7kXTz5K"];
+      const documentIds = ["k6RyIPcbODhfcsjDK9EL"];
 
       try {
         const promises = documentIds.map(async (documentId) => {
@@ -76,7 +76,7 @@ const ReactNativeCourse = () => {
                 <div className="col-lg-6">
                   <h2 className="text-white ">Course Name: {data.name}</h2>
                   <h2 className="text-white mt-3">
-                    <span className=" fw-bold pe-2"> Instructor:</span>{" "}
+                    <span className=" fw-bold pe-2"> Instructor:</span>
                     {data.instructor}
                   </h2>
                   <p className="text-white mt-3  pe-2">
@@ -114,8 +114,8 @@ const ReactNativeCourse = () => {
                   </div>
                 </div>
                 <div className="col-lg-6 col-md-8 col-11 pb-4 pb-lg-0 mx-auto text-center">
-                  {data.img === "img1" && (
-                    <img className="w-75" src={img1} alt="" />
+                  {data.img === "img2" && (
+                    <img className="w-75" src={img2} alt="" />
                   )}
                   <div>
                     <button
@@ -167,17 +167,16 @@ const ReactNativeCourse = () => {
                 <Accordion className=" set_width">
                   <Accordion.Item eventKey="0">
                     <Accordion.Header>
-                      Week -1 : Introduction to React Native
+                      Week -1 : Introduction to Reactjs
                     </Accordion.Header>
                     <Accordion.Body>{data.syllabus[0]}</Accordion.Body>
                   </Accordion.Item>
                   <Accordion.Item eventKey="1" className=" mt-4">
                     <Accordion.Header>
-                      Week -2 : Building Your First App
+                      Week -2 : Building Your First website
                     </Accordion.Header>
                     <Accordion.Body>
-                      Creating a simple mobile app using React Native
-                      components.
+                      Creating a simple website using Reactjs components.
                     </Accordion.Body>
                   </Accordion.Item>
                 </Accordion>
@@ -185,14 +184,14 @@ const ReactNativeCourse = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-5">
+        <div className="text-center">
           <Link to="/">
-            <button className=" button py-2 px-5 "> Go To Home</button>
+            <button className=" button py-2 px-5 mt-5 "> Go To Home</button>
           </Link>
-        </div>{" "}
+        </div>
       </div>
     </div>
   );
 };
 
-export default ReactNativeCourse;
+export default ReactjsCourse;
