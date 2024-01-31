@@ -4,7 +4,8 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import img1 from "../assets/images/png/img1.png";
 import img2 from "../assets/images/png/img2.png";
 import img3 from "../assets/images/png/img3.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import searchicon from "../assets/images/svg/search.svg";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -22,6 +23,7 @@ const db = getFirestore(app);
 
 const Courses = () => {
   const [sourceCodeData, setSourceCodeData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const fetchSourceCodeData = async () => {
@@ -55,16 +57,32 @@ const Courses = () => {
     fetchSourceCodeData();
   }, [db]);
 
+  const filteredData = sourceCodeData.filter(
+    (item) =>
+      item.instructor.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="bg-black overflow-x-hidden">
+      <div className="nav_input d-flex align-items-center mx-auto">
+        <input
+          className="input"
+          placeholder="Search Course"
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <img width={20} height={30} src={searchicon} alt="searchicon" />
+      </div>
       <div className="container">
-        <center className=" pt-5">
-          <h2 className=" text-white pt-4 fw-semibold fs-1 pb-3">
+        <center className="pt-5">
+          <h2 className="text-white pt-4 fw-semibold fs-1 pb-3">
             Latest Courses
           </h2>
         </center>
         <div className="row justify-content-center">
-          {sourceCodeData.map((data, index) => (
+          {filteredData.map((data, index) => (
             <div key={index} className="col-lg-4 py-3 col-sm-6 col-11">
               <div className="course_box d-flex flex-column justify-content-between p-2 h-100">
                 <div>
@@ -84,7 +102,7 @@ const Courses = () => {
                 <p className="text-white mt-4 mb-0 fs-5 fw-semibold">
                   Name: {data.name}
                 </p>
-                <div className=" pt-2">
+                <div className="pt-2">
                   <p className="text-white mb-0">
                     Instructor: {data.instructor}
                   </p>

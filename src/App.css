@@ -13,6 +13,7 @@ body {
 }
 
 .nav_input {
+  width: 250px;
   border: 1px solid #5d5959;
   border-radius: 7px;
   padding-right: 15px;
@@ -45,13 +46,17 @@ body {
   border-radius: 20px;
   bottom: -4px;
   transition: all 0.3s linear;
-  background: var(--Linear,
-      linear-gradient(270deg,
-        #ffa74c 0%,
-        #ff9155 18.23%,
-        #fe5f6b 48.44%,
-        #c769c6 79.69%,
-        #b16dea 100%));
+  background: var(
+    --Linear,
+    linear-gradient(
+      270deg,
+      #ffa74c 0%,
+      #ff9155 18.23%,
+      #fe5f6b 48.44%,
+      #c769c6 79.69%,
+      #b16dea 100%
+    )
+  );
 }
 
 .link_line:hover::after {
@@ -65,13 +70,17 @@ body {
 }
 
 .linear_gradient {
-  background: var(--Linear,
-      linear-gradient(270deg,
-        #ffa74c 0%,
-        #ff9155 18.23%,
-        #fe5f6b 48.44%,
-        #c769c6 79.69%,
-        #b16dea 100%));
+  background: var(
+    --Linear,
+    linear-gradient(
+      270deg,
+      #ffa74c 0%,
+      #ff9155 18.23%,
+      #fe5f6b 48.44%,
+      #c769c6 79.69%,
+      #b16dea 100%
+    )
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -84,23 +93,31 @@ body {
   outline: none;
   border: 1px solid rgb(127, 20, 20);
   transition: 0.3s all linear;
-  background: var(--Linear,
-      linear-gradient(270deg,
-        #ffa74c 0%,
-        #ff9155 18.23%,
-        #fe5f6b 48.44%,
-        #c769c6 79.69%,
-        #b16dea 100%));
+  background: var(
+    --Linear,
+    linear-gradient(
+      270deg,
+      #ffa74c 0%,
+      #ff9155 18.23%,
+      #fe5f6b 48.44%,
+      #c769c6 79.69%,
+      #b16dea 100%
+    )
+  );
 }
 
 .button:hover {
-  background: var(--Linear,
-      linear-gradient(270deg,
-        #ffa74c 0%,
-        #ab5b2f 18.23%,
-        #c1434e 48.44%,
-        #c769c6 79.69%,
-        #592684 100%));
+  background: var(
+    --Linear,
+    linear-gradient(
+      270deg,
+      #ffa74c 0%,
+      #ab5b2f 18.23%,
+      #c1434e 48.44%,
+      #c769c6 79.69%,
+      #592684 100%
+    )
+  );
 }
 
 .hamburger {
@@ -118,13 +135,17 @@ body {
   margin-bottom: 5px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.4s ease-in-out;
-  background: var(--Linear,
-      linear-gradient(270deg,
-        #ffa74c 0%,
-        #ff9155 18.23%,
-        #fe5f6b 48.44%,
-        #c769c6 79.69%,
-        #b16dea 100%));
+  background: var(
+    --Linear,
+    linear-gradient(
+      270deg,
+      #ffa74c 0%,
+      #ff9155 18.23%,
+      #fe5f6b 48.44%,
+      #c769c6 79.69%,
+      #b16dea 100%
+    )
+  );
   z-index: 15;
   opacity: 0.7;
 }
@@ -177,18 +198,19 @@ body {
 .accordion-item h2 {
   color: white !important;
   background-color: black !important;
-
 }
 
 @media (max-width: 992px) {
   .mobile_ul {
     position: fixed;
     backdrop-filter: blur(22px);
-    background: linear-gradient(180deg,
-        rgba(44, 185, 233, 0.3) 0%,
-        rgba(98, 104, 250, 0.3) 23.05%,
-        rgba(255, 255, 255, 0.3) 71.54%,
-        rgba(255, 255, 255, 0.3) 103.55%);
+    background: linear-gradient(
+      180deg,
+      rgba(44, 185, 233, 0.3) 0%,
+      rgba(98, 104, 250, 0.3) 23.05%,
+      rgba(255, 255, 255, 0.3) 71.54%,
+      rgba(255, 255, 255, 0.3) 103.55%
+    );
     height: 100vh;
     width: 100%;
     left: 0;

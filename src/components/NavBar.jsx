@@ -28,14 +28,6 @@ const NavBar = () => {
                 Enrolled Course
               </p>
             </Link>
-            <div className="nav_input d-flex align-items-center">
-              <input
-                className="input"
-                placeholder="Search Course"
-                type="text"
-              />
-              <img width={20} height={30} src={searchicon} alt="searchicon" />
-            </div>
           </div>
           <div className="text-end d-lg-none">
             <button
